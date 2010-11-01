@@ -4,7 +4,7 @@ end
 if ENABLE_RAILS_FOOTNOTES
   dir = File.dirname(__FILE__)
   require File.join(dir, 'rails-footnotes', 'footnotes')
-  require File.join(dir, 'rails-footnotes', 'backtracer')
+  # require File.join(dir, 'rails-footnotes', 'backtracer')
 
   # Load all notes
   #
