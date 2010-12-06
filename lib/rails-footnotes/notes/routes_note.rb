@@ -18,9 +18,9 @@ module Footnotes
 
       protected
         def parse_routes
-          routes_with_name = ActionController::Routing::Routes.named_routes.to_a.flatten
+          routes_with_name = Rails.application.routes.named_routes.to_a.flatten
 
-          return ActionController::Routing::Routes.filtered_routes(:controller => @controller.controller_path).collect do |route|
+          return Rails.application.routes.filtered_routes(:controller => @controller.controller_path).collect do |route|
             # Catch routes name if exists
             i = routes_with_name.index(route)
             name = i ? routes_with_name[i-1].to_s : ''
@@ -48,7 +48,7 @@ module Footnotes
       #
       def filtered_routes(filter = {})
         return [] unless filter.is_a?(Hash)
-        return routes.reject do |r| 
+        return routes.reject do |r|
           filter_diff = filter.diff(r.requirements)
           route_diff  = r.requirements.diff(filter)
           (filter_diff == filter) || (filter_diff != route_diff)
