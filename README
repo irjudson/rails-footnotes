@@ -70,7 +70,7 @@ add something like this to environment.rb:
 
 Finally, you can control which notes you want to show. The default are:
 
-  Footnotes::Filter.notes = [:session, :cookies, :params, :filters, :routes, :env, :queries, :log, :general]
+  Footnotes::Filter.notes = [:session, :cookies, :params, :filters, :routes, :env, :queries, :log ]
 
 
 Creating your own notes
